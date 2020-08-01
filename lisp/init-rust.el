@@ -3,6 +3,9 @@
 ;;; Code:
 
 (when (maybe-require-package 'rust-mode)
+  (add-hook 'rust-mode-hook
+            (lambda () (setq indent-tabs-mode nil)))
+  (setq rust-format-on-save t)
   (when (maybe-require-package 'racer)
     (add-hook 'rust-mode-hook #'racer-mode))
   (when (maybe-require-package 'company)
