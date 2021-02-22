@@ -28,11 +28,19 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;;
+(toggle-truncate-lines t)
+
 ;; xclip
 (require-package 'xclip)
 (xclip-mode 1)
 
 (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                               "xelatex -interaction nonstopmode %f"))
+
+;; ansible
+(require-package 'ansible)
+(add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+
 
 (provide 'init-preload-local)
